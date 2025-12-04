@@ -7,11 +7,13 @@ export const LanguageProvider = ({ children }) => {
   const [language, setLanguage] = useState('en');
   const [isLoading, setIsLoading] = useState(true);
 
-  // Initialize language from localStorage
+  // Initialize language from localStorage (SSR-safe)
   useEffect(() => {
-    const savedLanguage = localStorage.getItem('language') || 'en';
-    const validLanguage = getLanguageCode(savedLanguage);
-    setLanguage(validLanguage);
+    if (typeof window !== 'undefined') {
+      const savedLanguage = localStorage.getItem('language') || 'en';
+      const validLanguage = getLanguageCode(savedLanguage);
+      setLanguage(validLanguage);
+    }
     setIsLoading(false);
   }, []);
 
@@ -19,7 +21,9 @@ export const LanguageProvider = ({ children }) => {
   const changeLanguage = (lang) => {
     const validLanguage = getLanguageCode(lang);
     setLanguage(validLanguage);
-    localStorage.setItem('language', validLanguage);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('language', validLanguage);
+    }
   };
 
   return (

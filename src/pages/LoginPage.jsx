@@ -27,12 +27,14 @@ const LoginPage = () => {
     setError('');
   };
 
-  // Remember me functionality
+  // Remember me functionality (SSR-safe)
   useEffect(() => {
-    const savedEmail = localStorage.getItem('rememberEmail');
-    if (savedEmail) {
-      setFormData(prev => ({ ...prev, email: savedEmail }));
-      setRememberMe(true);
+    if (typeof window !== 'undefined') {
+      const savedEmail = localStorage.getItem('rememberEmail');
+      if (savedEmail) {
+        setFormData(prev => ({ ...prev, email: savedEmail }));
+        setRememberMe(true);
+      }
     }
   }, []);
 
@@ -51,11 +53,13 @@ const LoginPage = () => {
         formData.password
       );
 
-      // Save email if remember me is checked
-      if (rememberMe) {
-        localStorage.setItem('rememberEmail', formData.email);
-      } else {
-        localStorage.removeItem('rememberEmail');
+      // Save email if remember me is checked (SSR-safe)
+      if (typeof window !== 'undefined') {
+        if (rememberMe) {
+          localStorage.setItem('rememberEmail', formData.email);
+        } else {
+          localStorage.removeItem('rememberEmail');
+        }
       }
 
       login(response.user, response.token);
