@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { X, Sliders, Calendar, Briefcase, GraduationCap, Heart, Home, DollarSign } from 'lucide-react';
 import { useTheme } from '@/context/ThemeContext.jsx';

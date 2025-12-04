@@ -1,4 +1,3 @@
-import React from 'react';
 
 const Loading = ({ fullScreen = false }) => {
   const content = (

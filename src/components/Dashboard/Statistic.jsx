@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import { Users, CheckCircle, Percent, TrendingUp } from 'lucide-react';
 import ElegantStatCard from '../Common/ElegantStatCard';
 

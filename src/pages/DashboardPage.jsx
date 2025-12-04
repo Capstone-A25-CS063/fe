@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowUp, ArrowDown, Search, X } from 'lucide-react';
 import MainLayout from '@/components/Layout/MainLayout';

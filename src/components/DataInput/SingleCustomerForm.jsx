@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { X, Send } from 'lucide-react';
 import Alert from '../Common/Alert';
 import Loading from '../Common/Loading';

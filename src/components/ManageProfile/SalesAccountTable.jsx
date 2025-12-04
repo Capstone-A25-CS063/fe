@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+﻿import { useState } from 'react';
 import Modal from '../Common/Modal';
 import { Plus, Trash2 } from 'lucide-react';
 import { useTheme } from '@/context/ThemeContext.jsx';

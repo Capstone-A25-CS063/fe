@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Sidebar from './Sidebar';
 import ThemeToggle from '../Common/ThemeToggle';
 import { useTheme } from '@/context/ThemeContext.jsx';

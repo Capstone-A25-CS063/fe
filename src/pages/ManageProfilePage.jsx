@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import MainLayout from '@/components/Layout/MainLayout';
 import SalesAccountTable from '@/components/ManageProfile/SalesAccountTable';
 import Loading from '@/components/Common/Loading';

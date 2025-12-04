@@ -1,4 +1,3 @@
-import React from 'react';
 import { getStatusColor, getStatusLabel } from '@/utils/helpers.js';
 
 const StatusBadge = ({ status, isDropdown = false, onStatusChange }) => {

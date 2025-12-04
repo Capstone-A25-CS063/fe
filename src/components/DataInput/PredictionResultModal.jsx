@@ -1,4 +1,3 @@
-import React from 'react';
 import { X, CheckCircle, AlertCircle, TrendingUp } from 'lucide-react';
 import { useTheme } from '@/context/ThemeContext.jsx';
 

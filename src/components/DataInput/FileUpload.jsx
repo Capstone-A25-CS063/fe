@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { UploadCloud, X, FileText, FileSpreadsheet } from 'lucide-react';
 import Loading from '../Common/Loading';
 
