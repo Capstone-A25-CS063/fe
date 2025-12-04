@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect, useContext } from 'react';
 import { languages, getLanguageCode } from '@/utils/i18n.js';
 
 export const LanguageContext = createContext();
@@ -34,7 +34,7 @@ export const LanguageProvider = ({ children }) => {
 };
 
 export const useLanguage = () => {
-  const context = React.useContext(LanguageContext);
+  const context = useContext(LanguageContext);
   if (!context) {
     throw new Error('useLanguage must be used within LanguageProvider');
   }
