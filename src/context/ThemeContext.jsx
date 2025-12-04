@@ -6,31 +6,36 @@ export const ThemeProvider = ({ children }) => {
   const [darkMode, setDarkMode] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Initialize dark mode from localStorage
+  // Initialize dark mode from localStorage (SSR-safe)
   useEffect(() => {
-    const savedDarkMode = localStorage.getItem('darkMode') === 'true';
-    setDarkMode(savedDarkMode);
-    
-    // Apply theme to document
-    if (savedDarkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
+    if (typeof window !== 'undefined') {
+      const savedDarkMode = localStorage.getItem('darkMode') === 'true';
+      setDarkMode(savedDarkMode);
+      
+      // Apply theme to document
+      if (savedDarkMode) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
     }
     
     setIsLoading(false);
   }, []);
 
-  // Toggle dark mode
+  // Toggle dark mode (SSR-safe)
   const toggleDarkMode = () => {
     setDarkMode(prev => {
       const newDarkMode = !prev;
-      localStorage.setItem('darkMode', newDarkMode);
       
-      if (newDarkMode) {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('darkMode', newDarkMode);
+        
+        if (newDarkMode) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
       }
       
       return newDarkMode;
@@ -42,6 +47,14 @@ export const ThemeProvider = ({ children }) => {
       {children}
     </ThemeContext.Provider>
   );
+};
+
+export const useTheme = () => {
+  const context = React.useContext(ThemeContext);
+  if (!context) {
+    throw new Error('useTheme must be used within ThemeProvider');
+  }
+  return context;
 };
 
 export const useTheme = () => {
