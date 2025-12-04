@@ -12,33 +12,36 @@ export default defineConfig({
     port: 5173,
     open: true,
   },
-  // 🧩 Tambahkan properti resolve/alias
   resolve: {
     alias: {
-      // Menetapkan '@' sebagai alias untuk direktori './src'
       '@': path.resolve(__dirname, './src'), 
     },
   },
   build: {
+    minify: 'esbuild',
+    target: 'ES2020',
     rollupOptions: {
       output: {
-          manualChunks(id) {
-            if (id.includes('node_modules')) {
-
-              // React core + DOM + JSX runtime
-              if (id.match(/node_modules\/react(|-dom)\//)) {
-                return 'vendor-react';
-              }
-
-              if (id.includes('recharts')) return 'vendor-recharts';
-              if (id.includes('axios')) return 'vendor-axios';
-              if (id.includes('lucide-react')) return 'vendor-lucide';
-
-              return 'vendor-others';
-            }
-          }
+        // Use explicit manualChunks object for better clarity
+        manualChunks: {
+          // React core + DOM (keep tightly coupled)
+          'vendor-react': ['react', 'react-dom'],
+          // Large charting library
+          'vendor-recharts': ['recharts'],
+          // HTTP client
+          'vendor-axios': ['axios'],
+          // Icon library
+          'vendor-lucide': ['lucide-react'],
+        },
       }
     },
     chunkSizeWarningLimit: 1000,
-  }
+    commonjsOptions: {
+      transformMixedEsModules: true,
+    },
+  },
+  // Pre-bundle important dependencies
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'react-router-dom', 'axios', 'recharts', 'lucide-react'],
+  },
 })
