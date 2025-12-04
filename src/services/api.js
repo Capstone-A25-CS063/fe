@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { AuthContext } from '@/context/AuthContext.jsx';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+// Get API URL from environment or use default
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
 const api = axios.create({
   baseURL: API_URL,
@@ -17,11 +18,13 @@ export const setAuthContext = (authContext) => {
   authContextRef = authContext;
 };
 
-// Interceptor untuk menambahkan token ke setiap request
+// Interceptor untuk menambahkan token ke setiap request (SSR-safe)
 api.interceptors.request.use((config) => {
-  const token = localStorage.getItem('token');
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
+  if (typeof window !== 'undefined') {
+    const token = localStorage.getItem('token');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
   }
   return config;
 }, (error) => {
@@ -36,17 +39,21 @@ api.interceptors.response.use(
     if (error.response?.status === 401) {
       console.error('❌ 401 Unauthorized - Token expired or invalid');
       
-      // Clear localStorage
-      localStorage.removeItem('token');
-      localStorage.removeItem('user');
+      // Clear localStorage (SSR-safe)
+      if (typeof window !== 'undefined') {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+      }
       
       // Clear auth context if available
       if (authContextRef?.clearAuth) {
         authContextRef.clearAuth();
       }
       
-      // Redirect to login
-      window.location.href = '/login';
+      // Redirect to login (SSR-safe)
+      if (typeof window !== 'undefined') {
+        window.location.href = '/login';
+      }
     }
     
     return Promise.reject(error);
