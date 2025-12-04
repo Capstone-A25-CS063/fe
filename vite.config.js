@@ -22,25 +22,21 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks(id) {
-          // Split vendor libraries into separate chunks
-          if (id.includes('node_modules')) {
-            // Match exact react packages
-            if (id.includes('node_modules/react/') || id.includes('node_modules/react-dom/')) {
-              return 'vendor-react';
+          manualChunks(id) {
+            if (id.includes('node_modules')) {
+
+              // React core + DOM + JSX runtime
+              if (id.match(/node_modules\/react(|-dom)\//)) {
+                return 'vendor-react';
+              }
+
+              if (id.includes('recharts')) return 'vendor-recharts';
+              if (id.includes('axios')) return 'vendor-axios';
+              if (id.includes('lucide-react')) return 'vendor-lucide';
+
+              return 'vendor-others';
             }
-            if (id.includes('recharts')) {
-              return 'vendor-recharts';
-            }
-            if (id.includes('axios')) {
-              return 'vendor-axios';
-            }
-            if (id.includes('lucide-react')) {
-              return 'vendor-lucide';
-            }
-            return 'vendor-others';
           }
-        }
       }
     },
     chunkSizeWarningLimit: 1000,
