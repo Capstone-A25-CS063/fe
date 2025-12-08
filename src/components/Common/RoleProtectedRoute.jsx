@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { Navigate } from 'react-router-dom';
 import { AuthContext } from "@/context/AuthContext.jsx";
 import Loading from './Loading';
@@ -21,9 +21,9 @@ const RoleProtectedRoute = ({ children, allowedRoles = ['admin'] }) => {
   const normalizedAllowedRoles = allowedRoles.map(r => r.toLowerCase());
   const hasAccess = normalizedAllowedRoles.includes(userRole);
 
-  // Jika tidak punya role yang diperlukan, redirect ke dashboard
+  // Jika tidak punya role yang diperlukan, redirect ke unauthorized page
   if (!hasAccess) {
-    return <Navigate to="/dashboard" replace />;
+    return <Navigate to="/unauthorized" replace />;
   }
 
   return children;

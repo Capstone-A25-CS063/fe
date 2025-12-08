@@ -11,6 +11,7 @@ import LoginPage from './pages/LoginPage';
 import DashboardPage from './pages/DashboardPage';
 import ManageProfilePage from './pages/ManageProfilePage';
 import DataInputPage from './pages/DataInputPage';
+import UnauthorizedPage from './pages/UnauthorizedPage';
 
 // Styles
 import './index.css';
@@ -46,6 +47,7 @@ function AppInner() {
     <Routes>
       {/* Public Routes */}
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/unauthorized" element={<UnauthorizedPage />} />
 
       {/* Protected Routes */}
       <Route
