@@ -116,21 +116,38 @@ const LoginPage = () => {
             <div className="relative z-10 space-y-12 flex flex-col justify-between h-full">
               <div>
                 <div className="flex items-center gap-3 mb-8">
-                  <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center">
-                    <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                      LS
-                    </span>
+                  <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center p-2">
+                    <svg viewBox="0 0 800 640" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                      <defs>
+                        <linearGradient id="gradientLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" style={{stopColor: '#0891B2', stopOpacity: 1}} />
+                          <stop offset="100%" style={{stopColor: '#0369A1', stopOpacity: 1}} />
+                        </linearGradient>
+                        <linearGradient id="gradientRight" x1="100%" y1="0%" x2="0%" y2="100%">
+                          <stop offset="0%" style={{stopColor: '#06B6D4', stopOpacity: 1}} />
+                          <stop offset="100%" style={{stopColor: '#0891B2', stopOpacity: 1}} />
+                        </linearGradient>
+                        <linearGradient id="gradientCenter" x1="50%" y1="0%" x2="50%" y2="100%">
+                          <stop offset="0%" style={{stopColor: '#14B8A6', stopOpacity: 1}} />
+                          <stop offset="100%" style={{stopColor: '#0891B2', stopOpacity: 1}} />
+                        </linearGradient>
+                      </defs>
+                      <polygon points="340,180 340,540 550,540" fill="url(#gradientLeft)" opacity="0.9"/>
+                      <polygon points="550,180 550,540 760,540" fill="url(#gradientRight)" opacity="0.85"/>
+                      <polygon points="550,180 445,360 550,360" fill="url(#gradientCenter)" opacity="0.95"/>
+                      <polygon points="445,180 550,180 497.5,280" fill="#06B6D4" opacity="0.7"/>
+                    </svg>
                   </div>
-                  <h1 className="text-3xl font-bold text-white">LeadScore</h1>
+                  <h1 className="text-3xl font-bold text-white">PRISM</h1>
                 </div>
                 <h2 className="text-5xl font-bold text-white leading-tight">
-                  Smart Lead<br />Prediction
+                  Lead Scoring<br />Simplified
                 </h2>
               </div>
 
               <div className="space-y-3">
                 <p className="text-blue-100 text-lg font-light">
-                  AI-powered deposit scoring<br />for smarter decisions
+                  AI-powered lead scoring<br />for data-driven decisions
                 </p>
               </div>
             </div>
