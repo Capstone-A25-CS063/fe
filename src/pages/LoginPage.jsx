@@ -118,7 +118,7 @@ const LoginPage = () => {
                 <div className="flex items-center gap-3 mb-8">
                   <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center p-1">
                     <img 
-                      src="/prism-logo.png?v=2" 
+                      src="/src/assets/images/LogoPRISM.png" 
                       alt="PRISM Logo" 
                       className="w-full h-full object-contain"
                     />
