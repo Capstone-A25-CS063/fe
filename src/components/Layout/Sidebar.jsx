@@ -69,28 +69,26 @@ const Sidebar = ({ isOpen, onToggle }) => {
     >
       {/* Header */}
       <div className="flex items-center justify-between mb-10 relative pt-2 mt-2">
-        <div className="flex items-center gap-2 flex-1">
-          <img 
-            src="/LogoPRISM.png" 
-            alt="PRISM Logo" 
-            className={`object-contain transition-all duration-300 flex-shrink-0 ${
-              isOpen ? 'w-8 h-8' : 'w-10 h-10'
-            }`}
-          />
-          {isOpen && (
-            <h2 className="text-white text-base font-bold tracking-wide truncate">
+        {isOpen && (
+          <div className="flex items-center gap-3">
+            <img 
+              src="/LogoPRISM.png" 
+              alt="PRISM Logo" 
+              className="w-8 h-8 object-contain flex-shrink-0"
+            />
+            <h2 className="text-white text-lg font-bold tracking-wide">
               PRISM
             </h2>
-          )}
-        </div>
+          </div>
+        )}
 
         {/* Toggle Button */}
         <button
           onClick={() => onToggle(!isOpen)}
           className={`
-            p-2 rounded-xl text-white flex-shrink-0
+            absolute top-2/3 -translate-y-1/2 p-2 rounded-xl text-white
             transition-all duration-300 
-            ${isOpen ? 'ml-2' : ''}
+            ${isOpen ? 'right-0 translate-x-1/2' : 'left-1/2 -translate-x-1/2'}
           `}
         >
           {isOpen ? <ChevronLeft size={20} /> : <Menu size={20} />}
