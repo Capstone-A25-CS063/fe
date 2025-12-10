@@ -115,22 +115,27 @@ const LoginPage = () => {
             {/* Content */}
             <div className="relative z-10 space-y-12 flex flex-col justify-between h-full">
               <div>
-                <div className="flex items-start gap-6 mb-12">
-                  <img 
-                    src="/LogoPRISM.png" 
-                    alt="PRISM Logo" 
-                    className="w-24 h-24 object-contain flex-shrink-0 filter drop-shadow-lg"
-                  />
-                  <div className="flex flex-col justify-center">
-                    <h1 className="text-4xl font-bold text-white mb-1">PRISM</h1>
-                    <p className="text-blue-100 font-light text-lg">Predictive Lead Scoring System</p>
+                <div className="mb-16">
+                  <div className="flex items-center gap-4 mb-8">
+                    <div className="p-3 bg-white/10 rounded-2xl backdrop-blur-sm">
+                      <img 
+                        src="/LogoPRISM.png" 
+                        alt="PRISM Logo" 
+                        className="w-16 h-16 object-contain"
+                      />
+                    </div>
+                    <div>
+                      <h1 className="text-5xl font-bold text-white">PRISM</h1>
+                      <p className="text-blue-100 font-light text-base mt-1">Predictive Lead Scoring System</p>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div className="space-y-3">
-                <p className="text-blue-100 text-lg font-light">
-                  AI-powered lead scoring<br />for data-driven decisions
+              <div className="space-y-4">
+                <p className="text-blue-100 text-base font-light leading-relaxed">
+                  Intelligent lead scoring powered by AI<br />
+                  Transform your sales process with data-driven insights
                 </p>
               </div>
             </div>
