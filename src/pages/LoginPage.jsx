@@ -115,18 +115,17 @@ const LoginPage = () => {
             {/* Content */}
             <div className="relative z-10 space-y-12 flex flex-col justify-between h-full">
               <div>
-                <div className="mb-12">
+                <div className="flex items-start gap-6 mb-12">
                   <img 
                     src="/LogoPRISM.png" 
                     alt="PRISM Logo" 
-                    className="w-24 h-24 object-contain mb-6 filter drop-shadow-lg"
+                    className="w-24 h-24 object-contain flex-shrink-0 filter drop-shadow-lg"
                   />
-                  <h1 className="text-4xl font-bold text-white mb-2">PRISM</h1>
-                  <p className="text-blue-100 font-light">Lead Scoring System</p>
+                  <div className="flex flex-col justify-center">
+                    <h1 className="text-4xl font-bold text-white mb-1">PRISM</h1>
+                    <p className="text-blue-100 font-light text-lg">Predictive Lead Scoring System</p>
+                  </div>
                 </div>
-                <h2 className="text-5xl font-bold text-white leading-tight">
-                  Lead Scoring<br />Simplified
-                </h2>
               </div>
 
               <div className="space-y-3">
@@ -284,22 +283,7 @@ const LoginPage = () => {
               </div>
             </div>
 
-            {/* Demo Info */}
-            <div className={`p-3 rounded-lg text-xs text-center ${
-              darkMode
-                ? 'bg-gray-700/50 border border-gray-600'
-                : 'bg-gray-50 border border-gray-200'
-            }`}>
-              <p className={`${
-                darkMode ? 'text-gray-400' : 'text-gray-600'
-              }`}>
-                Demo: <span className={`font-mono ${
-                  darkMode ? 'text-blue-300' : 'text-blue-600'
-                }`}>admin@gmail.com</span> / <span className={`font-mono ${
-                  darkMode ? 'text-blue-300' : 'text-blue-600'
-                }`}>password123</span>
-              </p>
-            </div>
+
           </motion.div>
         </div>
       </motion.div>
