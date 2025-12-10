@@ -69,11 +69,20 @@ const Sidebar = ({ isOpen, onToggle }) => {
     >
       {/* Header */}
       <div className="flex items-center justify-between mb-10 relative pt-2 mt-2">
-        {isOpen && (
-          <h2 className="text-white text-lg font-bold tracking-wide">
-            LeadScoring
-          </h2>
-        )}
+        <div className="flex items-center gap-3">
+          <img 
+            src="/LogoPRISM.png" 
+            alt="PRISM Logo" 
+            className={`object-contain transition-all duration-300 ${
+              isOpen ? 'w-10 h-10' : 'w-12 h-12'
+            }`}
+          />
+          {isOpen && (
+            <h2 className="text-white text-lg font-bold tracking-wide">
+              PRISM
+            </h2>
+          )}
+        </div>
 
         {/* Toggle Button */}
         <button
