@@ -115,15 +115,14 @@ const LoginPage = () => {
             {/* Content */}
             <div className="relative z-10 space-y-12 flex flex-col justify-between h-full">
               <div>
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center p-1">
-                    <img 
-                      src="/LogoPRISM.png" 
-                      alt="PRISM Logo" 
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <h1 className="text-3xl font-bold text-white">PRISM</h1>
+                <div className="mb-12">
+                  <img 
+                    src="/LogoPRISM.png" 
+                    alt="PRISM Logo" 
+                    className="w-24 h-24 object-contain mb-6 filter drop-shadow-lg"
+                  />
+                  <h1 className="text-4xl font-bold text-white mb-2">PRISM</h1>
+                  <p className="text-blue-100 font-light">Lead Scoring System</p>
                 </div>
                 <h2 className="text-5xl font-bold text-white leading-tight">
                   Lead Scoring<br />Simplified
