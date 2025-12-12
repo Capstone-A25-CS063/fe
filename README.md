@@ -1,10 +1,6 @@
-# 🔍 PRISM Frontend
+# Predictive Lead Scoring for Banking Sales Frontend
 
-Sistem Penilaian Leads Berbasis AI - Dibangun dengan React 18 + Vite + Tailwind CSS
-
----
-
-## 📋 Mulai Cepat
+## 📋 Quick Start
 
 ### Persyaratan
 ```bash
