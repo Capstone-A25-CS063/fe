@@ -1,8 +1,8 @@
 # Predictive Lead Scoring for Banking Sales Frontend
 
-## � Deskripsi Proyek
+## Deskripsi Proyek
 
-**PRISM** adalah aplikasi web untuk sistem penilaian leads berbasis AI yang dirancang khusus untuk industri perbankan. Aplikasi ini membantu tim sales mengidentifikasi dan memprioritaskan leads berkualitas tinggi menggunakan algoritma machine learning. 
+PRISM adalah aplikasi web untuk sistem penilaian leads berbasis AI yang dirancang khusus untuk industri perbankan. Aplikasi ini membantu tim sales mengidentifikasi dan memprioritaskan leads berkualitas tinggi menggunakan algoritma machine learning. 
 
 Frontend ini menyediakan dashboard interaktif untuk visualisasi data, manajemen leads, import file CSV/Excel, dan analisis performa dengan role-based access control (Admin & Sales).
 
